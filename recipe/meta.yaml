@@ -12,16 +12,17 @@ source:
     - time.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
+    - setuptools
   run:
-    - python
+    - python >=3.6
 
 test:
   imports:
@@ -43,6 +44,10 @@ about:
     Chronic keeps track of the call hierarchy to tell you what timed 
     blocks executed within other timed blocks. Attach an event listener 
     to log your timings however you want.
+
+    If you are looking for the command line tool chronic which silences
+    stdout and stderr unless a command fails, that is avilable as part of
+    the moreutils conda-forge package.
   doc_url: http://github.com/davidcrawford/chronic
   dev_url: http://github.com/davidcrawford/chronic
 
